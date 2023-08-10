@@ -1,0 +1,40 @@
+<div class="job-container" *ngFor="let wh of list">
+  <div class="job-card">
+    <div class="property">
+      <span class="property-label">Company Name:</span>
+      <span class="property-value" id="companyName">{{ wh.companyName }}</span>
+    </div>
+    <div class="property">
+      <span class="property-label">Job Title:</span>
+      <span class="property-value" id="jobTitle">{{ wh.jobTitle }}</span>
+    </div>
+    <div class="property">
+      <span class="property-label">Project Name:</span>
+      <span class="property-value" id="projectName">{{ wh.projectName }}</span>
+    </div>
+    <div class="property">
+      <span class="property-label">Job City:</span>
+      <span class="property-value" id="jobCity">{{ wh.jobCity }}</span>
+    </div>
+    <div class="property">
+      <span class="property-label">Job Country:</span>
+      <span class="property-value" id="jobCountry">{{ wh.jobCountry }}</span>
+    </div>
+    <div class="property">
+      <span class="property-label">Project Description:</span>
+      <span class="property-value" id="projectDescription">{{
+        wh.projectDescription
+      }}</span>
+    </div>
+    <div class="property">
+      <span class="property-label">Tech Stack:</span>
+      <span class="property-value" id="techStack">{{ wh.techStack }}</span>
+    </div>
+    <span class="span-btn">
+      <i class="fa-regular fa-pen-to-square"></i>
+    </span>
+    <span class="span-btn">
+      <i class="fa-solid fa-trash"></i>
+    </span>
+  </div>
+</div>

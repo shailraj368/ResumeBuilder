@@ -1,0 +1,34 @@
+.job-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.job-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 500px;
+}
+
+.property {
+  margin-bottom: 10px;
+}
+
+.property-label {
+  font-weight: bold;
+  display: inline-block;
+  width: 200px; 
+}
+
+.property-value {
+  display: inline-block;
+}
+
+.span-btn{
+  padding: 5px;
+  cursor: pointer;
+}
