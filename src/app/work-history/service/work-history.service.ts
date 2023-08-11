@@ -17,4 +17,16 @@ export class WorkHistoryService {
   saveWorkHistory(data: any) {
     return this.http.post(this.url, data);
   }
+
+  getWorkHistory(id: any) {
+    return this.http.get(this.url + '/' + id);
+  }
+
+  updateWorkHistory(id: any, data: any) {
+    return this.http.put(this.url + '/' + id, data);
+  }
+
+  deleteWorkHistory(id: any) {
+    return this.http.delete(this.url + '/' + id);
+  }
 }

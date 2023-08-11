@@ -1,4 +1,12 @@
-<h1>{{ title }}</h1>
-<div>
-<app-work-history></app-work-history>
-</div>
+<nav class="navbar">
+  <div class="logo">
+    <a href="#">{{ title }}</a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#" routerLink="WorkHistory/list">Work History</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>

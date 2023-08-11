@@ -1,3 +1,5 @@
+<button (click)="addwh()">Add WH</button>
+
 <div class="job-container" *ngFor="let wh of list">
   <div class="job-card">
     <div class="property">
@@ -30,11 +32,23 @@
       <span class="property-label">Tech Stack:</span>
       <span class="property-value" id="techStack">{{ wh.techStack }}</span>
     </div>
+    <div class="property">
+      <span class="property-label">Start Date:</span>
+      <span class="property-value" id="startDate">{{ wh.startDate }}</span>
+    </div>
+    <div class="property">
+      <span class="property-label">End Date:</span>
+      <span class="property-value" id="endDate">{{ wh.endDate }}</span>
+    </div>
     <span class="span-btn">
-      <i class="fa-regular fa-pen-to-square"></i>
+      <a href="" [routerLink]="wh.id" (click)="editwh(wh.id)"
+        ><i class="fa-regular fa-pen-to-square"></i 
+      ></a>
     </span>
     <span class="span-btn">
+      <a href="" [routerLink]="wh.id" (click)="deleteWorkExp(wh.id)">
       <i class="fa-solid fa-trash"></i>
+    </a>
     </span>
   </div>
 </div>

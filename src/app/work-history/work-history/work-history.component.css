@@ -21,14 +21,14 @@
 .property-label {
   font-weight: bold;
   display: inline-block;
-  width: 200px; 
+  width: 200px;
 }
 
 .property-value {
   display: inline-block;
 }
 
-.span-btn{
+.span-btn {
   padding: 5px;
   cursor: pointer;
 }
