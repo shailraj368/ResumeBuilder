@@ -35,7 +35,7 @@ export class EditWorkHistoryComponent implements OnInit {
         if (id) {
           this.service.getWorkHistory(id).subscribe({
             next: (res) => {
-              console.log(res, 'update....');
+              console.log(res, 'Get By Id...........');
               this.WorkHistoryDetails = res;
             },
             error: (err) => {
@@ -48,7 +48,6 @@ export class EditWorkHistoryComponent implements OnInit {
   }
 
   updateWorkExp() {
-    console.log(this.WorkHistoryDetails);
     this.service
       .updateWorkHistory(this.WorkHistoryDetails.id, this.WorkHistoryDetails)
       .subscribe({
@@ -60,7 +59,8 @@ export class EditWorkHistoryComponent implements OnInit {
           console.log(err);
         },
       });
-    this.router.navigate(['list']);
+    console.log(this.WorkHistoryDetails, 'Update...........');
+    this.router.navigate(['/list']);
   }
 
   deleteWorkExp(id: any) {
@@ -74,6 +74,11 @@ export class EditWorkHistoryComponent implements OnInit {
         console.log(err);
       },
     });
-    this.router.navigate(['list']);
+    console.log(this.WorkHistoryDetails, 'Delete...........');
+    this.router.navigate(['/list']);
+  }
+
+  BackToList() {
+    this.router.navigate(['/list']);
   }
 }

@@ -13,7 +13,7 @@ export class WorkHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.service.refreshList().subscribe({
       next: (res) => {
-        console.log(res);
+        console.log(res,"Get All..........");
         this.list = res;
       },
       error: (err) => {
@@ -41,6 +41,8 @@ export class WorkHistoryComponent implements OnInit {
         console.log(err);
       },
     });
-    this.router.navigate(['list']);
+    
+    window.location.reload();
+    this.router.navigate(['/list']);
   }
 }

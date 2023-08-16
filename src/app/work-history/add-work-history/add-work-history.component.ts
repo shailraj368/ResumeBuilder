@@ -28,7 +28,6 @@ export class AddWorkHistoryComponent {
   }
 
   addWorkExp() {
-    console.log("Hello")
     this.service.saveWorkHistory(this.addWorkHistoryRequest).subscribe({
       next: (res) => {
         // this.service.refreshList();
@@ -38,8 +37,12 @@ export class AddWorkHistoryComponent {
         console.log(err);
       },
     });
-    
-    console.log(this.addWorkHistoryRequest);
+
+    console.log(this.addWorkHistoryRequest, 'Add.....');
+    this.router.navigate(['/list']);
+  }
+
+  BackToList() {
     this.router.navigate(['/list']);
   }
 }

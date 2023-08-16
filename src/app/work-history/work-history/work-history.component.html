@@ -1,54 +1,47 @@
-<button (click)="addwh()">Add WH</button>
-
-<div class="job-container" *ngFor="let wh of list">
-  <div class="job-card">
-    <div class="property">
-      <span class="property-label">Company Name:</span>
-      <span class="property-value" id="companyName">{{ wh.companyName }}</span>
-    </div>
-    <div class="property">
-      <span class="property-label">Job Title:</span>
-      <span class="property-value" id="jobTitle">{{ wh.jobTitle }}</span>
-    </div>
-    <div class="property">
-      <span class="property-label">Project Name:</span>
-      <span class="property-value" id="projectName">{{ wh.projectName }}</span>
-    </div>
-    <div class="property">
-      <span class="property-label">Job City:</span>
-      <span class="property-value" id="jobCity">{{ wh.jobCity }}</span>
-    </div>
-    <div class="property">
-      <span class="property-label">Job Country:</span>
-      <span class="property-value" id="jobCountry">{{ wh.jobCountry }}</span>
-    </div>
-    <div class="property">
-      <span class="property-label">Project Description:</span>
-      <span class="property-value" id="projectDescription">{{
-        wh.projectDescription
-      }}</span>
-    </div>
-    <div class="property">
-      <span class="property-label">Tech Stack:</span>
-      <span class="property-value" id="techStack">{{ wh.techStack }}</span>
-    </div>
-    <div class="property">
-      <span class="property-label">Start Date:</span>
-      <span class="property-value" id="startDate">{{ wh.startDate }}</span>
-    </div>
-    <div class="property">
-      <span class="property-label">End Date:</span>
-      <span class="property-value" id="endDate">{{ wh.endDate }}</span>
-    </div>
-    <span class="span-btn">
-      <a href="" [routerLink]="wh.id" (click)="editwh(wh.id)"
-        ><i class="fa-regular fa-pen-to-square"></i 
-      ></a>
-    </span>
-    <span class="span-btn">
-      <a href="" [routerLink]="wh.id" (click)="deleteWorkExp(wh.id)">
-      <i class="fa-solid fa-trash"></i>
-    </a>
-    </span>
+<div class="main-div">
+  <h2>Work History Details</h2>
+  <div class="button-container">
+    <button class="add-wh-btn" (click)="addwh()">UserDetails</button>
+  </div>
+  <div class="table-container">
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Company Name</th>
+        <th>Job Title</th>
+        <th>Project Name</th>
+        <!-- <th>Project Description</th> -->
+        <th>Tech Stack</th>
+        <th>Job City</th>
+        <!-- <th>Job Country</th> -->
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let wh of list">
+        <td>{{ wh.id }}</td>
+        <td>{{ wh.companyName }}</td>
+        <td>{{ wh.jobTitle }}</td>
+        <td>{{ wh.projectName }}</td>
+        <!-- <td>{{ wh.projectDescription }}</td> -->
+        <td>{{ wh.techStack }}</td>
+        <td>{{ wh.jobCity }}</td>
+        <!-- <td>{{ wh.jobCountry }}</td> -->
+        <td>{{ wh.startDate | date: 'yyyy-MM-dd' }}</td>
+        <td>{{ wh.endDate | date: 'yyyy-MM-dd'}}</td>
+        <td>
+          <span class="view-btn">
+            <a href="" [routerLink]="wh.id" (click)="editwh(wh.id)"
+              ><i class="fa-regular fa-eye"></i
+            ></a>
+          </span>
+          <span class="delete-btn">
+            <a href="" [routerLink]="wh.id" (click)="deleteWorkExp(wh.id)">
+              <i class="fa-regular fa-trash-can"></i>
+            </a>
+          </span>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
