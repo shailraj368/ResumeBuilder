@@ -1,0 +1,10 @@
+.company-details {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .company-details img {
+    max-width: 200px;
+    max-height: 200px;
+  }
+  

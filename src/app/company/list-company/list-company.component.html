@@ -1,0 +1,6 @@
+<div class="company-details" *ngFor="let item of list">
+  <h1>{{ item.companyName }}</h1>
+  <img [attr.src]="item.logoPath" alt="Company Logo" />
+  <p>Contact No: {{ item.contactNo }}</p>
+  <p>Email: {{ item.email }}</p>
+</div>
