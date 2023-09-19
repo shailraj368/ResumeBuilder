@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import form-related modules
 import { UserAuthService } from '../service/user-auth.service';
 import { Router } from '@angular/router';
 
@@ -7,38 +8,54 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
-  constructor(private service: UserAuthService, private router: Router) {}
 
-  user = {
-    userName: '',
-    password: '',
-  };
+export class LoginComponent implements OnInit {
+  loginForm!: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder, 
+    private service: UserAuthService,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]], 
+      password: ['', [Validators.required, Validators.minLength(6)]], 
+    });
+  }
 
   onSubmit() {
-    this.service.loginUser(this.user).subscribe({
-      next: (res : any) => {
-        // this.service.refreshList();
-        // window.location.reload();
-        console.log(res,"Login Res ...")
-        localStorage.setItem('token',res.results.token)
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    const user = {
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password,
+    };
+
+    this.service.loginUser(user).subscribe({
+      next: (res: any) => {
+        console.log(res, 'Login Res ...');
+        localStorage.setItem('token', res.results.token);
+        this.router.navigate(['WorkHistory/list']);
       },
       error: (err) => {
         console.log(err);
       },
     });
 
-    console.log(this.user, 'Login.....');
-    this.router.navigate(['WorkHistory/list']);
+    console.log(user, 'Login.....');
   }
 }
 
 
-// getProfile(){
+// // getProfile(){
 
-//   let headers = {
-//     'Authorization' : "Bearer " + localStorage.getItem('token')
-//   }
+// //   let headers = {
+// //     'Authorization' : "Bearer " + localStorage.getItem('token')
+// //   }
 
-//   return this.http.get(this.url,{headers:headers})
-// }
+// //   return this.http.get(this.url,{headers:headers})
+// // }

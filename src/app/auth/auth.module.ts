@@ -5,9 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
+import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent],
+  declarations: [RegisterComponent, LoginComponent, ProfileComponent, VerifyOtpComponent],
   imports: [CommonModule, FormsModule,AuthRoutingModule,ReactiveFormsModule],
 })
 export class AuthModule {}

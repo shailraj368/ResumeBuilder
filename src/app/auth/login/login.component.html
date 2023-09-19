@@ -1,17 +1,29 @@
-<!-- user-auth/register/register.component.html -->
 <div class="registration-form">
     <h2>Login</h2>
-    <form #form="ngForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" [(ngModel)]="user.userName" required />
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email Id</label>
+        <input type="text" id="email" formControlName="email" required />
+        <div class="error" *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+          Email is required.
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" [(ngModel)]="user.password" required />
+        <div class="error" *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
+          Invalid email format.
         </div>
-        <button type="submit">Login</button>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password" required />
+        <div class="error" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+          Password is required.
+        </div>
+        <div class="error" *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">
+          Password should be at least 6 characters.
+        </div>
+      </div>
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
     </form>
-    <br>
-    <p>Not Registerd ? <a routerLink="/Auth/register">Register</a></p>
-</div>
+    <br />
+    <p>Not Registered? <a routerLink="/Auth/register">Register</a></p>
+  </div>
+  

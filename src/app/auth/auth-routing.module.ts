@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { VerifyOtpComponent } from './verify-otp/verify-otp.component';
 
 const routes: Routes = [
   {
@@ -12,6 +14,14 @@ const routes: Routes = [
   {
     path:"login",
     component : LoginComponent
+  },
+  {
+    path:"profile",
+    component : ProfileComponent
+  },
+  {
+    path : "otp",
+    component : VerifyOtpComponent
   }
 ];
 

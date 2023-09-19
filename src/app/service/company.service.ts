@@ -13,4 +13,9 @@ export class CompanyService {
   companyList() {
     return this.http.get(this.url);
   }
+  
+  
+  getCompany(id:any) {
+    return this.http.get(this.url + '/' + id);
+  }
 }

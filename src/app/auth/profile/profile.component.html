@@ -1,0 +1,22 @@
+<div class="user-profile">
+  <h1>User Profile</h1>
+  <div class="user-info">
+    <div class="info-item">
+      <label for="name">Name:</label>
+      <span id="name">{{list.name}}</span>
+    </div>
+    <div class="info-item">
+      <label for="userName">Username:</label>
+      <span id="userName">{{list.userName}}</span>
+    </div>
+    <div class="info-item">
+      <label for="email">Email:</label>
+      <span id="email">{{list.email}}</span>
+      <span ><a class="verify-flag" (click)="sendOtp()">{{verifyFlag}}</a></span>
+    </div>
+    <div class="info-item">
+      <label for="role">Role:</label>
+      <span id="role">{{list.role}}</span>
+    </div>
+  </div>
+</div>

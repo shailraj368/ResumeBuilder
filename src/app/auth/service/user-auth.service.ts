@@ -18,6 +18,18 @@ export class UserAuthService {
     return this.http.post(this.url + '/login', data);
   }
 
+  profile(id: any) {
+    return this.http.get(this.url + '/profile' + '?id=' + id);
+  }
+
+  sendVerificationMail(data: any) {
+    return this.http.post(this.url + '/SendEmail', data);
+  }
+
+  verifyOtp(data: any) {
+    return this.http.post(this.url + '/verifyotp', data);
+  }
+
   isLoggedIn() {
     const token: any = localStorage.getItem('token'); // get token from local storage
 
